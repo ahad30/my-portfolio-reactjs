@@ -1,175 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    color-scheme: dark;
+  }
 
+  body {
+    @apply bg-neutral-950 font-sans text-neutral-300 antialiased;
+  }
 
-/* Fonts End */
-
-/* Variable CSS */
-
-:root {
---first-color: hsl(353, 100%, 65%);
---title-color: hsl(244, 24%, 26%);
---text-color: hsl(244, 16%, 43%);
---body-color: hsl(258, 60%, 98%);
---container-color: #fff;
-
-
---body-font: 'Rubik', sans-serif;
---h1-font-size: 2.25rem;
---h2-font-size: 1.5rem;
---h3-font-size: 1.25rem;
---normal-font-size: 1rem;
---small-font-size: 0.875rem;
---smaller-font-size:0.813;
-
-
---font-medium: 500;
---font-semibold: 600;
---font-bold:700;
-
-
---shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
---border-radius: 20px;
-
+  ::selection {
+    @apply bg-cyan-400/30 text-white;
+  }
 }
 
+@layer components {
+  .section-shell {
+    @apply relative mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 md:py-32;
+  }
 
-/* Responsive typography */
-@media screen and (max-width: 1024px) {
-:root{
---h1-font-size: 1.75rem;
---h2-font-size: 1.25rem;
---h3-font-size: 1rem;
---normal-font-size: 0.938rem;
---small-font-size: 0.813rem;
---smaller-font-size: 0.75rem;
-}
-}
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-cyan-400;
+  }
 
+  .heading-gradient {
+    @apply bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent;
+  }
 
-/* Responsive typography END */
-
-
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
+  .accent-gradient {
+    @apply bg-gradient-to-r from-cyan-300 via-sky-400 to-violet-400 bg-clip-text text-transparent;
+  }
 }
 
-html{
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
-
-body,
-button,
-input,
-textarea {
- font-family: var(--body-font);
- font-size: var(--normal-font-size);
-}
-
-body{
-  background-color: var(--body-color);
-  line-height: 1.7;
-  color: var(--text-color);
-}
-
-h1, h2, h3{ 
-color: var(--title-color);
-font-weight: var(--font-semibold);
-font-weight: 1.7;
-}
-
-ul{
-  list-style: none;
-}
-
-a{
-  text-decoration: none;
-}
-
-button{
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-img{
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-}
-
-/* Variable CSS END */
-
-
-/* CSS CLASSES */
-
-.container{
-  max-width: 1080px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto;
-}
-
-.grid{
-  display: grid;
-}
-
-.section{
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-}
-
-.section__title{
-  font-size: var(--h1-font-size) ;
-  margin-left: 0.875rem;
-  margin-bottom: 2.5rem ;
-  font-weight: var(--font-bold);
-  position: relative ;
-}
-
-.section__title::before {
-  content:'' ;
-  background: url(./assets/dots-bg.svg);
-  height: 2.25rem ;
-  width: 2.25rem;
-  position: absolute;
-  left: -0.875rem;
-  top: -0.875rem;
-}
-
-.btn{
-  padding: 0.75rem 2rem;
-  line-height: 1;
-  border-radius: 1.875rem;
-  box-shadow: 0 1px rgb(☺ ☺ ☺ / 0%);
-  border: 1px solid transparent;
-  color: #fff;
-  display: inline-block;
-  background-color: var(--first-color);
-  font-weight: var(--font-bold);
-}
-
-@keyframes button-push {
-
-50%{
-  transform: scale(0.8);
-}
-100%{
-  transform: scale(1);
-}
-
-}
-
-.btn:hover{
-  animation: button-push 0.3s linear 1;
-}
-
-/* CSS CLASSES END */
